@@ -1,0 +1,73 @@
+
+/* おーぷん２ちゃんねる風の基本スタイル */
+body {
+  font-family: "MS PGothic", "Osaka-Mono", monospace;
+  background-color: #ccffcc;
+  color: #000000;
+  margin: 0;
+  padding: 20px;
+  background-image: url('https://cdn.upload.system/brickwall.jpg');
+  background-repeat: repeat;
+}
+
+h1 {
+  font-size: 24px;
+  color: #000080;
+  border-bottom: 2px solid #000080;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 18px;
+  background-color: #99ff99;
+  padding: 4px 8px;
+  border: 1px solid #009900;
+  margin-top: 20px;
+}
+
+a {
+  color: #0000cc;
+  text-decoration: none;
+}
+a:hover {
+  color: #ff0000;
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  margin: 4px 0;
+  padding: 2px 4px;
+}
+
+input[type="text"],
+input[type="password"],
+button {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 5px;
+  margin: 2px 0;
+}
+
+#oekaki-canvas {
+  image-rendering: pixelated;
+  border: 1px solid #333;
+}
+
+/* 管理者ラベル */
+.admin-label {
+  color: orange;
+  font-weight: bold;
+}
+
+/* レス番号アンカー */
+a.anchor {
+  color: #990000;
+  font-weight: bold;
+  text-decoration: none;
+}
