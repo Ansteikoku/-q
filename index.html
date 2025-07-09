@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>6ちゃんねる - 板一覧</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { font-family: sans-serif; background: #d0f0d0; }
+    img#board-banner { width: 490px; height: 120px; object-fit: cover; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <h1>6ちゃんねる</h1>
+  <div id="board-banner-container" style="text-align:center; margin-bottom:1em;">
+    <img id="board-banner" src="" alt="板のバナー" />
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="supabase.js"></script>
+  <script>
+    const boardSlug = new URLSearchParams(window.location.search).get('board');
+    async function loadBoardBanner() {
+      if (!boardSlug) return;
+      const { data, error } = await supabase
+        .from('boards')
+        .select('banner_url')
+        .eq('slug', boardSlug)
+        .single();
+      if (error) {
+        console.error('バナー取得エラー:', error.message);
+        return;
+      }
+      if (data && data.banner_url) {
+        document.getElementById('board-banner').src = data.banner_url;
+      }
+    }
+    loadBoardBanner();
+  </script>
+</body>
+</html>
